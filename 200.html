@@ -1,0 +1,177 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<meta name="viewport" content="user-scalable=yes">
+<title>fourmeme</title>
+<link rel="stylesheet" href="/static/entry.CGWzLt93.css" crossorigin>
+<link rel="modulepreload" as="script" crossorigin href="/static/rPvHvt7J.js">
+<script type="module" src="/static/rPvHvt7J.js" crossorigin></script>
+<link rel="prefetch" as="script" crossorigin href="/static/DMwmC6vH.js">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<script id="unhead:payload" type="application/json">{"title":"fourmeme"}</script></head><body><div id="__nuxt"><!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <style>
+    body,
+    html {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background-color: black;
+    }
+
+    .content {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #EBEBEB;
+      transform: scale(0.4);
+    }
+
+    .content_box {
+      width: 520px;
+      position: relative;
+      height: 50px;
+      display: flex;
+      justify-content: space-between;
+
+    }
+
+    .content_box_frist {
+      height: 50px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+    }
+
+    .content_box_frist .box {
+      width: 15px;
+      height: 100%;
+      background-color: #2E2E2E;
+      margin-right: 5px;
+
+    }
+
+    .content_box_second {
+      height: 50px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+    }
+
+
+
+    .content_box_second .box {
+      width: 15px;
+      height: 100%;
+      background-color: #EBEBEB;
+      margin-right: 5px;
+    }
+
+    .box_finally {
+      position: relative;
+    }
+
+    .progress_txt {
+      width: 50px;
+      font-size: 24px;
+      font-weight: bold;
+      position: absolute;
+      left: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      margin-left: 10px;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content">
+    <div class="content_box">
+      <div class="content_box_frist">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box box_finally">
+          <span class="progress_txt" id="progressTextInside">0%</span>
+        </div>
+      </div>
+      <div class="content_box_second" id="progressContainer">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let progress = 0;
+    const totalBoxes = 25;
+    const progressContainer = document.getElementById('progressContainer');
+    const progressTextInside = document.getElementById('progressTextInside');
+
+    let isStuck = false;
+
+    function updateProgress() {
+      if (progress < totalBoxes) {
+        const newBox = document.createElement('div');
+        newBox.classList.add('box');
+        progressContainer.appendChild(newBox);
+
+        const progressPercentage = Math.floor((progress / totalBoxes) * 100);
+        progressTextInside.textContent = `${progressPercentage}%`;
+
+        if (progress === Math.floor(totalBoxes / 2) && !isStuck) {
+          isStuck = true;
+          setTimeout(() => {
+            progress++;
+            isStuck = false;
+          }, 1000);
+        } else {
+          progress++;
+        }
+      }
+    }
+
+    const intervalId = setInterval(() => {
+      updateProgress();
+      if (progress >= totalBoxes) {
+        const progressPercentage = 99;
+        progressTextInside.textContent = `${progressPercentage}%`;
+        clearInterval(intervalId);
+        return
+      }
+    }, 200);
+  </script>
+
+</body>
+
+</html></div><div id="teleports"></div><script>window.__NUXT__={};window.__NUXT__.config={public:{api:{baseUrl:""},persistedState:{storage:"cookies",debug:false,cookieOptions:{}}},app:{baseURL:"/",buildId:"2c7b951a-eb14-4a2a-b172-232ce87432bb",buildAssetsDir:"/static/",cdnURL:""}}</script>
+<script type="application/json" data-nuxt-data="nuxt-app" data-ssr="false" id="__NUXT_DATA__">[{"prerenderedAt":1,"serverRendered":2},1768985319665,false]</script></body></html>
